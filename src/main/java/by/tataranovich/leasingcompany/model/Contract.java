@@ -3,12 +3,17 @@ package by.tataranovich.leasingcompany.model;
 
 import java.util.Date;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+
 import by.tataranovich.leasingcompany.model.IdEntity;
 
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Contract extends IdEntity {
+    
     //public static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
-
     private Date date;
+
     private Client client;
     private Car car;
     private LeasingProgramm leasingProgramm;
@@ -55,15 +60,11 @@ public class Contract extends IdEntity {
         this.credit = credit;
     }
 
-//    public LeasingCompany getLeasingCompany() {
-//        return leasingCompany;
-//    }
-//
-//    public void setLeasingCompany(LeasingCompany leasingCompany) {
-//        this.leasingCompany = leasingCompany;
-//    }
-
-    
+    @Override
+    public String toString() {
+	return "Contract [id=" + getId() + ", date=" + date + ", client=" + client + ", car= "
+		+ car + ", leasingProgramm = "+ leasingProgramm +", credit= " + credit + "]";
+    }
 
 
 }

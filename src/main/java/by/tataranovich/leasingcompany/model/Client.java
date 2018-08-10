@@ -2,14 +2,23 @@ package by.tataranovich.leasingcompany.model;
 
 import java.util.ArrayList;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import by.tataranovich.leasingcompany.model.IdEntity;
 
-
+@XmlRootElement(name="carProvider")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Client extends IdEntity{
    
     private String firstName;
     private String lastName;
     private String phone;
+    
+    @JsonIgnore
     private ArrayList<Contract> contracts;
 
     public String getFirstName() {

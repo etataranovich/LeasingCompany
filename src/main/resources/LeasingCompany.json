@@ -1,158 +1,296 @@
-{
-	"leasingcompanies": [{
-			"name": "Best choice",
-			"phone": "5678419",
-			"addresses": [
-			        {
-					"street": "Dzerginskogo",
-					 "houseNumber": "12"						
-					},
-			    	{
-					"street": "Mogilevski",
-					"houseNumber": "33"
-					}				
-			             ],
-			"contracts": [
-			 {
-				"date": "2017-12-01",				               
-                "client": {
-                  "firstName": "Alex",
-                  "lastName": "Ivanov",
-                  "phone": "2345678"                
-               },
-                "car": {         
-			    "price": 25000,			    
-				"carModel": "MAZ",
-				"carProvider": {
-				"name": "Mazfactory",
-                "phone": "4563712"      
-				}
-				       },
-				"leasingProgramm": 
-				{ 
-				"name": "family support",			    
-				"maxYearTerm": 6,
-				"commission": 2
-			     },
-				"credit": 
-				{ 
-				"loanAmount": 45679,			    
-				"interestRate": 6,
-				"term": 2
-				}
-				
-		      },
-			     
-			  {
-				"date": "2017-04-01",				               
-                  "client": {
-                  "firstName": "Jhon",
-                  "lastName": "Sidorov",
-                  "phone": "1223456"                
-               },
-                "car": {         
-			    "price": 34000,			    
-				"carModel": "LADA",
-				"carProvider": {
-				"name": "Nevada",
-                "phone": "5674834"      
-				}
-				       },
-				"leasingProgramm": 
-				{ 
-				"name": "light",			    
-				"maxYearTerm": 5,
-				"commission": 1
-			     },
-				"credit": 
-				{ 
-				"loanAmount": 67890,			    
-				"interestRate": 13,
-				"term": 4
-				}
-				} ]
+[
+	{
+		"id": 1,
+		"name": "Best Choice",
+		"phone": "5678419",
+		"addresses": [
+			{
+				"id": 2,
+				"street": "Dzerginskogo",
+				"houseNumber": "12"
+			},
+			{
+				"id": 3,
+				"street": "Mogilevski",
+				"houseNumber": "33"
+			}
+		],
+		"contracts": [
+			{
+				"id": 1,
+				"date": "2017-12-01",
+				"client": {
+					"id": 1,
+					"firstName": "Sergei",
+					"lastName": "Petrov",
+					"phone": "2942813"
 				},
-				{
-			"name": "Good Luck",
-			"phone": "3456789",
-			"addresses": [
-			        {
-					"street": "Nalibotslki",
-					 "house": "22"						
-					},
-			    	{
-					"street": "Kolasa",
-					"houseNumber": "45"
-					}				
-			             ],
-			"contracts": [
-			 {
-				"date": "2017-11-07",				               
-                "client": {
-                  "firstName": "Sam",
-                  "lastNname": "Famanov",
-                  "phone": "7865432"                
-               },
-                "car": {         
-			    "price": 46000,			    
-				"carModel": "PEGO",
-				"carPovider": {
-				"name": "Ventura",
-                "phone": "2341528"      
+				"car": {
+					"id": 3,
+					"price": 25000,
+					"carModel": "MAZ",
+					"carProvider": {
+						"id": 3,
+						"name": "Vekprom",
+						"phone": "4563724"
+					}
+				},
+				"leasingProgramm": {
+					"id": 2,
+					"name": "family support",
+					"maxYearTerm": 6,
+					"commision": 2
+				},
+				"credit": {
+					"id": 3,
+					"loanAmount": 45679,
+					"interestRate": 12,
+					"term": 3
 				}
-				       },
-				"leasingProgramm": 
-				{ 
-				"name": "bussines support",			    
-				"maxYearTerm": 10,
-				"commission": 3
-			     },
-				"credit": 
-				{ 
-				"loanAmount": 45680,			    
-				"interestRate": 10,
-				"term": 5
+			},
+			{
+				"id": 2,
+				"date": "2017-04-01",
+				"client": {
+					"id": 2,
+					"firstName": "Alex",
+					"lastName": "Ivanov",
+					"phone": "2345678"
+				},
+				"car": {
+					"id": 2,
+					"price": 34000,
+					"carModel": "LADA",
+					"carProvider": {
+						"id": 2,
+						"name": "Ladina",
+						"phone": "4567321"
+					}
+				},
+				"leasingProgramm": {
+					"id": 1,
+					"name": "light",
+					"maxYearTerm": 5,
+					"commision": 1
+				},
+				"credit": {
+					"id": 4,
+					"loanAmount": 67890,
+					"interestRate": 13,
+					"term": 4
 				}
-				
-		      },
-			     
-			  {
-				"date": "2017-03-09",				               
-                  "client": {
-                  "firstName": "Sergei",
-                  "lastName": "Petrov",
-                  "phone": "2942813"                
-               },
-                "car": {         
-			    "price": 38930,			    
-				"carModel": "AUDI",
-				"carPovider": {
-				"name": "Vekprom",
-                "phone": "4563724"      
+			},
+			{
+				"id": 5,
+				"date": "2017-05-05",
+				"client": {
+					"id": 5,
+					"firstName": "Kate",
+					"lastName": "Nori",
+					"phone": "2345674"
+				},
+				"car": {
+					"id": 5,
+					"price": 46940,
+					"carModel": "TEPO",
+					"carProvider": {
+						"id": 5,
+						"name": "Nevada",
+						"phone": "5674834"
+					}
+				},
+				"leasingProgramm": {
+					"id": 1,
+					"name": "light",
+					"maxYearTerm": 5,
+					"commision": 1
+				},
+				"credit": {
+					"id": 1,
+					"loanAmount": 45678,
+					"interestRate": 12,
+					"term": 5
 				}
-				       },
-				"leasingProgramm": 
-				{ 
-				"name": "light",			    
-				"maxYearTerm": 5,
-				"commission": 1
-			     },
-				"credit": 
-				{ 
-				"loanAmount": 55667,			    
-				"interestRate": 14,
-				"term": 2
+			},
+			{
+				"id": 6,
+				"date": "2017-08-08",
+				"client": {
+					"id": 6,
+					"firstName": "Gorge",
+					"lastName": "Smith",
+					"phone": "1234573"
+				},
+				"car": {
+					"id": 6,
+					"price": 34578,
+					"carModel": "MAZ",
+					"carProvider": {
+						"id": 6,
+						"name": "Luston",
+						"phone": "4567324"
+					}
+				},
+				"leasingProgramm": {
+					"id": 2,
+					"name": "family support",
+					"maxYearTerm": 6,
+					"commision": 2
+				},
+				"credit": {
+					"id": 6,
+					"loanAmount": 34560,
+					"interestRate": 10,
+					"term": 4
 				}
-}
+			}
+		],
+		"clients": [
+			{
+				"id": 1,
+				"firstName": "Sergei",
+				"lastName": "Petrov",
+				"phone": "2942813"
+			},
+			{
+				"id": 2,
+				"firstName": "Alex",
+				"lastName": "Ivanov",
+				"phone": "2345678"
+			},
+			{
+				"id": 5,
+				"firstName": "Kate",
+				"lastName": "Nori",
+				"phone": "2345674"
+			},
+			{
+				"id": 6,
+				"firstName": "Gorge",
+				"lastName": "Smith",
+				"phone": "1234573"
+			},
+			{
+				"id": 7,
+				"firstName": "Anton",
+				"lastName": "Human",
+				"phone": "3452714"
+			},
+			{
+				"id": 8,
+				"firstName": "Andrei",
+				"lastName": "Alexeev",
+				"phone": "2345168"
+			}
+		]
+	},
+	{
+		"id": 2,
+		"name": "Good Luck",
+		"phone": "3456789",
+		"addresses": [
+			{
+				"id": 1,
+				"street": "Nalibotslki",
+				"houseNumber": "22"
+			},
+			{
+				"id": 5,
+				"street": "Kolasa",
+				"houseNumber": "45"
+			}
+		],
+		"contracts": [
+			{
+				"id": 3,
+				"date": "2017-11-07",
+				"client": {
+					"id": 3,
+					"firstName": "Jhon",
+					"lastName": "Sidorov",
+					"phone": "1223456"
+				},
+				"car": {
+					"id": 1,
+					"price": 46000,
+					"carModel": "PEGO",
+					"carProvider": {
+						"id": 1,
+						"name": "Ventura",
+						"phone": "2341528"
+					}
+				},
+				"leasingProgramm": {
+					"id": 3,
+					"name": "bussines support",
+					"maxYearTerm": 10,
+					"commision": 3
+				},
+				"credit": {
+					"id": 5,
+					"loanAmount": 45680,
+					"interestRate": 10,
+					"term": 5
+				}
+			},
+			{
+				"id": 4,
+				"date": "2017-03-09",
+				"client": {
+					"id": 4,
+					"firstName": "Sam",
+					"lastName": "Famanov",
+					"phone": "7865432"
+				},
+				"car": {
+					"id": 4,
+					"price": 38930,
+					"carModel": "AUDI",
+					"carProvider": {
+						"id": 4,
+						"name": "Mazfactory",
+						"phone": "4563712"
+					}
+				},
+				"leasingProgramm": {
+					"id": 1,
+					"name": "light",
+					"maxYearTerm": 5,
+					"commision": 1
+				},
+				"credit": {
+					"id": 2,
+					"loanAmount": 55667,
+					"interestRate": 14,
+					"term": 2
+				}
+			}
+		],
+		"clients": [
+			{
+				"id": 3,
+				"firstName": "Jhon",
+				"lastName": "Sidorov",
+				"phone": "1223456"
+			},
+			{
+				"id": 4,
+				"firstName": "Sam",
+				"lastName": "Famanov",
+				"phone": "7865432"
+			},
+			{
+				"id": 9,
+				"firstName": "Olga",
+				"lastName": "Turina",
+				"phone": "2318796"
+			},
+			{
+				"id": 10,
+				"firstName": "Igor",
+				"lastName": "Ataanov",
+				"phone": "2617687"
+			}
+		]
+	}
 ]
-}
-]
-}
-	            
-
-
-
-				
-				
-				
-				

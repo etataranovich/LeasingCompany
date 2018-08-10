@@ -1,17 +1,38 @@
 package by.tataranovich.leasingcompany.model;
 
+
+
 import java.util.List;
+
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElementWrapper;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlElement;
+
+
 
 import by.tataranovich.leasingcompany.model.IdEntity;
 
+@XmlRootElement(name = "leasingCompany")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class LeasingCompany extends IdEntity {
     private String name;
     private String phone;
-    private List<Address> addresses;
-    private List<Contract> contracts;
+
+    @XmlElementWrapper(name = "addresses")
+    @XmlElement(name = "address")   
+    private List<Address> addresses;    
+    @XmlElementWrapper(name = "contracts")
+    @XmlElement(name = "contract")
+    private List<Contract> contracts;    
+    @XmlElementWrapper(name = "clients")
+    @XmlElement(name = "client")
+        
     private List<Client> clients;
 
-    public LeasingCompany(int id) {
+    public LeasingCompany(Long id) {
 	super(id);
     }
 
@@ -27,13 +48,12 @@ public class LeasingCompany extends IdEntity {
 	this.name = name;
     }
 
-
     public String getPhone() {
-        return phone;
+	return phone;
     }
 
     public void setPhone(String phone) {
-        this.phone = phone;
+	this.phone = phone;
     }
 
     public List<Address> getAddresses() {
@@ -52,19 +72,18 @@ public class LeasingCompany extends IdEntity {
 	this.contracts = contracts;
     }
 
-    
     public List<Client> getClients() {
-        return clients;
+	return clients;
     }
 
     public void setClients(List<Client> clients) {
-        this.clients = clients;
+	this.clients = clients;
     }
 
     @Override
     public String toString() {
 	return "LeasingCompany [id=" + getId() + ", name=" + name + ", phone=" + phone + ", addresses" + addresses
-		+ ", contracts=" + contracts + ", clients=" + clients +"]";
+		+ ", contracts=" + contracts + ", clients=" + clients + "]";
     }
 
 }

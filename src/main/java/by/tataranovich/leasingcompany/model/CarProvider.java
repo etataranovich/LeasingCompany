@@ -2,20 +2,30 @@ package by.tataranovich.leasingcompany.model;
 
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import by.tataranovich.leasingcompany.model.IdEntity;
 
+
+@XmlRootElement(name="carProvider")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class CarProvider extends IdEntity {
     
     public CarProvider() {
 	super();
     }
 
-    public CarProvider(int id) {
+    public CarProvider(Long id) {
 	super(id);
     }
 
     private String name;
     private String phone;
+    @JsonIgnore
     private List<Car> cars;
     
     public String getName() {

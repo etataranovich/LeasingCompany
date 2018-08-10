@@ -1,24 +1,27 @@
 package by.tataranovich.leasingcompany.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public abstract class IdEntity {
     
-    private Integer id;
+   @JsonProperty
+    private Long id;
 
     public IdEntity() {
 	super();
 
     }
 
-    public IdEntity(Integer id) {
+    public IdEntity(Long id) {
 
 	this.id = id;
     }
 
-    public int getId() {
+    public Long getId() {
 	return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
 	this.id = id;
     }
 

@@ -1,12 +1,20 @@
 package by.tataranovich.leasingcompany.model;
 
-//public class Address implements IdHolder
+//import javax.xml.bind.annotation.XmlAccessType;
+//import javax.xml.bind.annotation.XmlAccessorType;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+//@XmlAccessorType(XmlAccessType.FIELD)
 public class Address extends IdEntity {
 
     private String street;
     private String houseNumber;
+    
+    @JsonIgnore
+    private Long leasingCompanyId;
 
-    public Address(Integer id) {
+    public Address(Long id) {
 	super(id);
     }
 
@@ -30,9 +38,18 @@ public class Address extends IdEntity {
         this.houseNumber = houseNumber;
     }
 
+        
+    public Long getLeasingCompanyId() {
+        return leasingCompanyId;
+    }
+
+    public void setLeasingCompanyId(Long leasingCompanyId) {
+        this.leasingCompanyId = leasingCompanyId;
+    }
+
     @Override
     public String toString() {
-	return "Address [id=" + getId() + ", street=" + street + ", houseNumber" + houseNumber + "]";
+	return "Address [id=" + getId() + ", street=" + street + ", houseNumber = " + houseNumber + "]";
     }
 
 }

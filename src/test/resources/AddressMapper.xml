@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.roxoft.buildingcompany.main.dao.mybatis.MyBatisAddressDao">
+
+	<insert id="add" useGeneratedKeys="true" keyProperty="id">
+		<![CDATA[
+			INSERT INTO address (COUNTRY,REGION_ID,CITY,STREET,BUILDING,ZIPCODE)
+			VALUES (
+				#{country1},
+				#{region_id},
+				#{city},
+				#{street},
+				#{building},
+				#{zipcode}
+			)
+		]]>
+	</insert>
+
+	<sql id="getAddress">
+		<![CDATA[
+			SELECT
+			    A.ID AS ADDRESS_ID,
+				A.COUNTRY AS ADDRESS_COUNTRY,
+				A.CITY AS ADDRESS_CITY,
+				A.STREET AS ADDRESS_STREET,
+				A.BUILDING AS ADDRESS_BUILDING,
+				A.ZIPCODE AS ADDRESS_ZIPCODE,
+                R.NAME AS REGION_NAME
+			FROM
+				ADDRESS A left join region R on A.REGION_ID=R.ID  
+		]]>
+		
+	</sql>
+
+	<select id="getById" parameterType="int" resultMap="Address">
+		<include refid="getAddress" />
+		<![CDATA[
+			WHERE A.ID = #{id};
+		]]>
+	</select>
+	
+	<select id="findAll" resultMap="Address">
+		<include refid="getAddress" />
+	</select>
+
+	<update id="update">
+		<![CDATA[
+        	UPDATE
+        		Address
+          	SET
+          		COUNTRY = #{country1},
+				REGION_ID = #{region_id},
+				CITY = #{city},
+				STREET = #{street},
+				BUILDING = #{building},
+          		ZIPCODE = #{zipcode}
+          	WHERE
+			 	ID = #{id}
+        ]]>
+	</update>
+	
+	 <delete id="delete">
+        <![CDATA[
+        	DELETE
+          	FROM 
+          		Address
+          	WHERE
+          		ID = #{id}
+        ]]>
+    </delete>
+	
+	<resultMap type="com.roxoft.buildingcompany.main.address.Address" id="Address" autoMapping="false">
+		<id column="ADDRESS_ID" property="id" />
+		<result column="ADDRESS_COUNTRY" property="country1" />
+		<result column="ADDRESS_CITY" property="city" />
+		<result column="ADDRESS_STREET" property="street" />
+		<result column="ADDRESS_BUILDING" property="building" />
+		<result column="ADDRESS_ZIPCODE" property="zipcode" />
+        <result column="REGION_NAME" property="reg" />
+		</resultMap>
+
+</mapper>
