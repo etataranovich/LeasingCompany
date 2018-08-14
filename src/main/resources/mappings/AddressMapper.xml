@@ -35,18 +35,25 @@
 	<select id="getAll" resultMap="Address">
 		<include refid="getAddress" />
 	</select>
+	
+	<select id="getAddressesByLeasingCompanyId" resultMap="Address">
+		<include refid="getAddress" />
+		LEFT JOIN leasing_company lc ON a.id=lc.id 
+			WHERE lc.id = #{id};
+		
+	</select>
 
 	<update id="update">
 		<![CDATA[
         	UPDATE
         		addresses
           	SET
-          		COUNTRY = #{country1},
-				REGION_ID = #{region_id},
-				CITY = #{city}
+          		street = #{street},
+				house_number = #{houseNumber},
+				leasing_company_id = #{leasingCompanyId}
 
           	WHERE
-			 	ID = #{id}
+			 	id = #{id}
         ]]>
 	</update>
 	

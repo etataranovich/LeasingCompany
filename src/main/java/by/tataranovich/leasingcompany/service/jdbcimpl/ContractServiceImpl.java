@@ -33,11 +33,13 @@ public class ContractServiceImpl extends AbstractService<Contract, JDBCContractD
 
     }
 
+    @Override
     public List<Contract> getContractsByLeasingCompanyId(Long idLeasingCompany) {
 	List<Contract> contractList = dao.getContractsByIdLeasingCompany(idLeasingCompany);
 	contractList.stream().forEach((m) -> m.setCar(carServiceImpl.getCarByContractId(m.getId())));
 	contractList.stream().forEach((m) -> m.setClient(clientService.getClientByContractId(m.getId())));
-	contractList.stream().forEach((m) -> m.setLeasingProgramm(leasingProgrammDAO.getLeasingProgrammByContractId(m.getId())));
+	contractList.stream()
+		.forEach((m) -> m.setLeasingProgramm(leasingProgrammDAO.getLeasingProgrammByContractId(m.getId())));
 	contractList.stream().forEach((m) -> m.setCredit(creditDAO.getCreditByContractId(m.getId())));
 	return contractList;
     }
@@ -58,20 +60,13 @@ public class ContractServiceImpl extends AbstractService<Contract, JDBCContractD
     }
 
     @Override
-    public List<Contract> getAllByLeasingCompanyId(int idLeasingCompany) {
-	return null;
-    }
-
-    @Override
     public void add(Contract entity) {
-	
+
     }
 
     @Override
     public List<Contract> getAll() {
 	return null;
     }
-    
-    
 
 }

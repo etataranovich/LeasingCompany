@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="by.tataranovich.leasingcompany.dao.IClientDAO">
+
+	<insert id="add" useGeneratedKeys="true" keyProperty="id">
+		<![CDATA[
+			INSERT INTO clients (first_name,last_name,phone)
+			VALUES (
+				#{firstName},
+				#{lastName},
+				#{phone}
+			)
+		]]>
+	</insert>
+
+	<sql id="getClient">
+		<![CDATA[
+			SELECT
+			    cl.id AS client_id,
+				cl.first_name AS client_first_name,
+				cl.last_name AS client_last_name,
+				cl.phone AS client_phone
+				FROM clients cl   
+		]]>
+
+	</sql>
+
+	<select id="getById" parameterType="java.lang.Long" resultMap="Client">
+		<include refid="getClient" />
+		<![CDATA[
+			WHERE cl.id = #{id};
+		]]>
+	</select>
+
+	<select id="getClientByContractId" parameterType="java.lang.Long"
+		resultMap="Client">
+		<![CDATA[
+		SELECT
+			    cl.id AS client_id,
+				cl.first_name AS client_first_name,
+				cl.last_name AS client_last_name,
+				cl.phone AS client_phone
+				FROM clients cl LEFT JOIN contracts co ON cl.id=co.id 
+			WHERE co.id = #{id};
+		]]>
+	</select>
+
+	<select id="getAll" resultMap="Client">
+		<include refid="getClient" />
+	</select>
+
+	<update id="update">
+		<![CDATA[
+        	UPDATE
+        		clients
+          	SET
+          		first_name = #{firstName},
+				last_name = #{lastName},
+				phone = #{phone}
+          	WHERE
+			 	id = #{id}
+        ]]>
+	</update>
+
+	<delete id="delete">
+        <![CDATA[
+        	DELETE
+          	FROM 
+          		clients
+          	WHERE
+          		id = #{id}
+        ]]>
+	</delete>
+
+	<resultMap type="by.tataranovich.leasingcompany.model.Client"
+		id="Client" autoMapping="false">
+		<id column="client_id" property="id" />
+		<result column="client_first_name" property="firstName" />
+		<result column="client_last_name" property="lastname" />
+		<result column="client_phone" property="phone" />
+	</resultMap>
+
+</mapper>

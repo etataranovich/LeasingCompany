@@ -19,24 +19,32 @@
 	<sql id="getContract">
 		<![CDATA[
 			SELECT
-			    ct.id AS contcact_date,
+			    ct.id AS contcact_id,
+			    ct.date AS contcact_date,
 			    ct.client_id AS contract_client_id,
-				ct.price AS car_price,
-				ct.car_model_id AS car_model_id,
-				ct.car_provider_id AS car_provider_id
-				FROM contarcts ct   
+				ct.car_id AS contract_car_id,
+				ct.leasing_programm_id AS contract_leasing_programm_id,
+				ct.credit_id AS contract_credit_id
+				FROM contracts ct   
 		]]>
 
 	</sql>
 
-	<select id="getById" parameterType="java.lang.Long" resultMap="Car">
-		<include refid="getCar" />
+	<select id="getById" parameterType="java.lang.Long" resultMap="Contract">
+		<include refid="getContract" />
+		<![CDATA[
+			WHERE c.id = #{id};
+		]]>
+	</select>
+	
+		<select id="getContractById" parameterType="java.lang.Long" resultMap="Car">
+		<include refid="getContract" />
 		<![CDATA[
 			WHERE c.id = #{id};
 		]]>
 	</select>
 
-	<select id="getAll" resultMap="Car">
+	<select id="getAll" resultMap="Contact">
 		<include refid="getCar" />
 	</select>
 
@@ -46,7 +54,10 @@
         		contracts
           	SET
           		date = #{date},
-				car_model_id = #{carModel, typeHandler=by.tataranovich.leasingcompany.mybatis.CarModelTypeHandler}
+          		client_id = #{client.id},
+				car_id = #{car.id},				
+				leasing_programm_id = #{leasingProgramm.id},
+				credit_id = #{credit.id},
           	WHERE
 			 	id = #{id}
         ]]>
@@ -62,14 +73,25 @@
         ]]>
 	</delete>
 
-	<resultMap type="by.tataranovich.leasingcompany.model.Contarct"
-		id="Car" autoMapping="false">
-		<id column="car_id" property="id" />
-		<result column="car_price" property="price" />
-		<association property="carModel" column="car_model_id"
-			javaType="by.tataranovich.leasingcompany.model.CarModel" />
-		<association property="carProvider" column="car_provider_id"
-			javaType="by.tataranovich.leasingcompany.model.CarProvider" select="by.tataranovich.leasingcompany.dao.ICarProviderDAO.getById"
+	<resultMap type="by.tataranovich.leasingcompany.model.Contract"
+		id="Contract" autoMapping="false">
+		<id column="contract_id" property="id" />
+		<result column="date" property="date" />
+		<association property="car" column="contract_client_id"
+			javaType="by.tataranovich.leasingcompany.model.Client"
+			select="by.tataranovich.leasingcompany.dao.IClientDAO.getClientByContractId"
+			fetchType="eager" />
+		<association property="car" column="contract_client_id"
+			javaType="by.tataranovich.leasingcompany.model.Car"
+			select="by.tataranovich.leasingcompany.dao.ICarDAO.getCarByContractId"
+			fetchType="eager" />
+		<association property="leasingProgramm" column="contract_leasing_programm_id"
+			javaType="by.tataranovich.leasingcompany.model.LeasingProgramm"
+			select="by.tataranovich.leasingcompany.dao.ILeasingProgrammDAO.getLeasingProgrammByContractId"
+			fetchType="eager" />
+		<association property="credit" column="contract_credit_id"
+			javaType="by.tataranovich.leasingcompany.model.Credit"
+			select="by.tataranovich.leasingcompany.dao.ILeasingProgrammDAO.getCreditByContractId"
 			fetchType="eager" />
 	</resultMap>
 

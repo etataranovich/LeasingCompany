@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import by.tataranovich.leasingcompany.model.IdEntity;
 
-//@XmlRootElement(name="carProvider")
+//@XmlRootElement(name="client")
 //@XmlAccessorType(XmlAccessType.FIELD)
 public class Client extends IdEntity{
    

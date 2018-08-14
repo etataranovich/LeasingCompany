@@ -20,7 +20,7 @@
 			    c.id AS car_id,
 				c.price AS car_price,
 				c.car_model_id AS car_model_id,
-				c.car_provider_id AS car_provider_id
+				c.car_provider_id AS car_car_provider_id
 				FROM cars c   
 		]]>
 
@@ -65,7 +65,7 @@
 		<result column="car_price" property="price" />
 		<association property="carModel" column="car_model_id"
 			javaType="by.tataranovich.leasingcompany.model.CarModel" />
-		<association property="carProvider" column="car_provider_id"
+		<association property="carProvider" column="car_car_provider_id"
 			javaType="by.tataranovich.leasingcompany.model.CarProvider" select="by.tataranovich.leasingcompany.dao.ICarProviderDAO.getById"
 			fetchType="eager" />
 	</resultMap>
