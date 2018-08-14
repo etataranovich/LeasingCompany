@@ -1,13 +1,13 @@
 package by.tataranovich.leasingcompany.model;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
+//import javax.xml.bind.annotation.XmlAccessType;
+//import javax.xml.bind.annotation.XmlAccessorType;
+//import javax.xml.bind.annotation.XmlRootElement;
 
 import by.tataranovich.leasingcompany.model.IdEntity;
 
-@XmlRootElement(name="credit")
-@XmlAccessorType(XmlAccessType.FIELD)
+//@XmlRootElement(name="credit")
+//@XmlAccessorType(XmlAccessType.FIELD)
 public class Credit extends IdEntity {
 
     private Integer loanAmount;

@@ -19,7 +19,7 @@
 			SELECT
 			    a.id AS address_id,
 				a.street AS address_street,
-				a.house_number AS address_house_number,
+				a.house_number AS address_house_number
 				FROM addresses a   
 		]]>
 		
@@ -60,7 +60,7 @@
         ]]>
     </delete>
 	
-	<resultMap type="package by.tataranovich.leasingcompany.model.Address" id="Address" autoMapping="false">
+	<resultMap type="by.tataranovich.leasingcompany.model.Address" id="Address" autoMapping="false">
 		<id column="address_id" property="id" />
 		<result column="address_street" property="street" />
 		<result column="address_house_number" property="houseNumber" />

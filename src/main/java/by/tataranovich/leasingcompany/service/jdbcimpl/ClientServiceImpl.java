@@ -1,8 +1,8 @@
-package by.tataranovich.leasingcompany.service.impl;
+package by.tataranovich.leasingcompany.service.jdbcimpl;
 
 import java.util.List;
 
-import by.tataranovich.leasingcompany.dao.impl.JDBCClientDAO;
+import by.tataranovich.leasingcompany.dao.jdbcimpl.JDBCClientDAO;
 import by.tataranovich.leasingcompany.model.Client;
 import by.tataranovich.leasingcompany.service.IClientService;
 

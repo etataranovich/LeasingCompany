@@ -13,7 +13,7 @@ import org.apache.logging.log4j.Logger;
 
 import by.tataranovich.leasingcompany.model.LeasingCompany;
 import by.tataranovich.leasingcompany.model.LeasingCompanyList;
-import by.tataranovich.leasingcompany.service.impl.LeasingCompanyServiceImpl;
+import by.tataranovich.leasingcompany.service.jdbcimpl.LeasingCompanyServiceImpl;
 
 public class JAXBRunner {
     

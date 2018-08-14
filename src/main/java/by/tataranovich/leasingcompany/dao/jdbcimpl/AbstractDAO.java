@@ -1,4 +1,4 @@
-package by.tataranovich.leasingcompany.dao.impl;
+package by.tataranovich.leasingcompany.dao.jdbcimpl;
 
 import java.io.IOException;
 import java.io.InputStream;

@@ -1,43 +1,44 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>by.tataranovich</groupId>
- <artifactId>leasingCompany</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <build>
-    <plugins>
-      <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.7.0</version>
-        <configuration>
-          <release>9</release>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
-  <description>TestProgramm</description>
-  <name>My Leasing company</name>
- <dependencies>
-  <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
-<dependency>
-    <groupId>org.apache.logging.log4j</groupId>
-    <artifactId>log4j-api</artifactId>
-    <version>2.11.0</version>
-</dependency>
-<!-- https://mvnrepository.com/artifact/com.itextpdf/itextpdf -->
-<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
-<dependency>
-    <groupId>org.apache.logging.log4j</groupId>
-    <artifactId>log4j-core</artifactId>
-    <version>2.11.0</version>
-</dependency>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>by.tataranovich</groupId>
+	<artifactId>leasingCompany</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.7.0</version>
+				<configuration>
+					<release>9</release>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<description>TestProgramm</description>
+	<name>My Leasing company</name>
+	<dependencies>
+		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>2.11.0</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.itextpdf/itextpdf -->
+		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>2.11.0</version>
+		</dependency>
 
-<dependency>
-    <groupId>mysql</groupId>
-    <artifactId>mysql-connector-java</artifactId>
-    <version>8.0.12</version>
-</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.12</version>
+		</dependency>
 
-<dependency>
+		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-core</artifactId>
 			<version>2.9.6</version>
@@ -53,19 +54,19 @@
 			<version>2.9.6</version>
 		</dependency>
 
-<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
-<dependency>
-    <groupId>org.mybatis</groupId>
-    <artifactId>mybatis</artifactId>
-    <version>3.4.6</version>
-</dependency>
 
 
 
 
-</dependencies>
+		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>3.4.6</version>
+		</dependency>
 
-		
 
-  </project>
+	</dependencies>
+
+</project>
 

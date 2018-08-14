@@ -1,6 +1,6 @@
-package by.tataranovich.leasingcompany.service.impl;
+package by.tataranovich.leasingcompany.service.jdbcimpl;
 
-import by.tataranovich.leasingcompany.dao.impl.AbstractDAO;
+import by.tataranovich.leasingcompany.dao.jdbcimpl.AbstractDAO;
 import by.tataranovich.leasingcompany.service.DefaultService;
 
 public abstract class AbstractService<T, S extends AbstractDAO<T>> implements DefaultService<T> {

@@ -1,10 +1,10 @@
-package by.tataranovich.leasingcompany.service.impl;
+package by.tataranovich.leasingcompany.service.jdbcimpl;
 
 import java.util.List;
 
-import by.tataranovich.leasingcompany.dao.impl.JDBCContractDAO;
-import by.tataranovich.leasingcompany.dao.impl.JDBCCreditDAO;
-import by.tataranovich.leasingcompany.dao.impl.JDBCLeasingProgrammDAO;
+import by.tataranovich.leasingcompany.dao.jdbcimpl.JDBCContractDAO;
+import by.tataranovich.leasingcompany.dao.jdbcimpl.JDBCCreditDAO;
+import by.tataranovich.leasingcompany.dao.jdbcimpl.JDBCLeasingProgrammDAO;
 import by.tataranovich.leasingcompany.model.Contract;
 import by.tataranovich.leasingcompany.service.IContractService;
 

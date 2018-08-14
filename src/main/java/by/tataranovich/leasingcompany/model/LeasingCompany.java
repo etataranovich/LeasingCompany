@@ -1,35 +1,24 @@
 package by.tataranovich.leasingcompany.model;
 
-
-
 import java.util.List;
-
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElementWrapper;
-import javax.xml.bind.annotation.XmlRootElement;
-
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlElement;
-
-
 
 import by.tataranovich.leasingcompany.model.IdEntity;
 
-@XmlRootElement(name = "leasingCompany")
-@XmlAccessorType(XmlAccessType.FIELD)
+//@XmlRootElement(name = "leasingCompany")
+//@XmlAccessorType(XmlAccessType.FIELD)
 public class LeasingCompany extends IdEntity {
     private String name;
     private String phone;
 
-    @XmlElementWrapper(name = "addresses")
-    @XmlElement(name = "address")   
-    private List<Address> addresses;    
-    @XmlElementWrapper(name = "contracts")
-    @XmlElement(name = "contract")
-    private List<Contract> contracts;    
-    @XmlElementWrapper(name = "clients")
-    @XmlElement(name = "client")
-        
+    // @XmlElementWrapper(name = "addresses")
+    // @XmlElement(name = "address")
+    private List<Address> addresses;
+    // @XmlElementWrapper(name = "contracts")
+    // @XmlElement(name = "contract")
+    private List<Contract> contracts;
+    // @XmlElementWrapper(name = "clients")
+    // @XmlElement(name = "client")
+
     private List<Client> clients;
 
     public LeasingCompany(Long id) {

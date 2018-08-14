@@ -1,9 +1,9 @@
-package by.tataranovich.leasingcompany.service.impl;
+package by.tataranovich.leasingcompany.service.jdbcimpl;
 
 import java.util.List;
 
-import by.tataranovich.leasingcompany.dao.impl.JDBCCarDAO;
-import by.tataranovich.leasingcompany.dao.impl.JDBCCarProviderDAO;
+import by.tataranovich.leasingcompany.dao.jdbcimpl.JDBCCarDAO;
+import by.tataranovich.leasingcompany.dao.jdbcimpl.JDBCCarProviderDAO;
 import by.tataranovich.leasingcompany.model.Car;
 import by.tataranovich.leasingcompany.service.ICarService;
 
@@ -28,7 +28,7 @@ public class CarServiceImpl extends AbstractService<Car, JDBCCarDAO> implements 
 	List<Car> cars = dao.getCarByCarProviderId(idCarProvider);
 	carProviderDAO = new JDBCCarProviderDAO();
 	for (Car car : cars) {
-	    Long carId = car.getId();
+	    long carId = car.getId();
 	    car.setCarProvider(carProviderDAO.getCarProviderByCarId((carId)));
 	}
 	return cars;

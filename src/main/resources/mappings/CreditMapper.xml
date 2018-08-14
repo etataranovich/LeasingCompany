@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="by.tataranovich.leasingcompany.dao.ICreditDAO">
+
+	<insert id="add" useGeneratedKeys="true" keyProperty="id">
+		<![CDATA[
+			INSERT INTO credits (name,phone)
+			VALUES (
+				#{name},
+				#{phone}
+			)
+		]]>
+	</insert>
+
+	<sql id="getCredit">
+		<![CDATA[
+			SELECT
+			    c.id AS credit_id,
+				c.loan_amount AS credit_loan_amount,
+				c.interest_rate AS credit_interest_rate,
+				c.term AS credit_term
+				FROM credits c   
+		]]>
+
+	</sql>
+
+	<select id="getById" parameterType="java.lang.Long" resultMap="Credit">
+		<include refid="getCredit" />
+		<![CDATA[
+			WHERE c.id = #{id};
+		]]>
+	</select>
+
+	<select id="getCreditByContractId" parameterType="java.lang.Long" resultMap="Credit">
+		<![CDATA[
+		SELECT
+			    c.id AS credit_id,
+				c.loan_amount AS credit_loan_amount,
+				c.interest_rate AS credit_interest_rate,
+				c.term AS credit_term
+				FROM credits c LEFT JOIN contracts co ON c.id=co.id 
+			WHERE co.id = #{id};
+		]]>
+	</select>
+
+	<select id="getAll" resultMap="Credit">
+		<include refid="getCredit" />
+	</select>
+
+	<update id="update">
+		<![CDATA[
+        	UPDATE
+        		credits
+          	SET
+          		name = #{name},
+				phone = #{phone}
+          	WHERE
+			 	ID = #{id}
+        ]]>
+	</update>
+
+	<delete id="delete">
+        <![CDATA[
+        	DELETE
+          	FROM 
+          		credits
+          	WHERE
+          		id = #{id}
+        ]]>
+	</delete>
+
+	<resultMap type="by.tataranovich.leasingcompany.model.Credit"
+		id="Credit" autoMapping="false">
+		<id column="credit_id" property="id" />
+		<result column="credit_loan_amount" property="loanAmount" />
+		<result column="credit_interest_rate" property="interestRate" />
+		<result column="credit_term" property="term" />
+	</resultMap>
+
+</mapper>

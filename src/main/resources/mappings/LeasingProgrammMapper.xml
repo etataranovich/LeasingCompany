@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="by.tataranovich.leasingcompany.dao.ILeasingProgrammDAO">
+
+	<insert id="add" useGeneratedKeys="true" keyProperty="id">
+		<![CDATA[
+			INSERT INTO leasing_programms (name,phone)
+			VALUES (
+				#{name},
+				#{maxYearTerm},
+				#{commision}
+			)
+		]]>
+	</insert>
+
+	<sql id="getLeasingProgramm">
+		<![CDATA[
+			SELECT
+			    lp.id AS leasing_programm_id,
+				lp.name AS leasing_programm_name,
+				lp.max_year_term AS leasing_programm_max_year_term,
+				lp.commision AS leasing_programm_commision
+				FROM leasing_programms lp   
+		]]>
+
+	</sql>
+
+	<select id="getById" parameterType="java.lang.Long" resultMap="LeasingProgramm">
+		<include refid="getLeasingProgramm" />
+		<![CDATA[
+			WHERE lp.id = #{id};
+		]]>
+	</select>
+
+	<select id="getLeasingProgrammByContractId" parameterType="java.lang.Long" resultMap="LeasingProgramm">
+		<![CDATA[
+		SELECT
+			    lp.id AS leasing_programm_id,
+				lp.name AS leasing_programm_name,
+				lp.max_year_term AS leasing_programm_max_year_term,
+				lp.commision AS leasing_programm_commision
+				FROM leasing_programms lp LEFT JOIN contracts co ON lp.id=co.id 
+			WHERE co.id = #{id};
+		]]>
+	</select>
+
+	<select id="getAll" resultMap="LeasingProgramm">
+		<include refid="getLeasingProgramm" />
+	</select>
+
+	<update id="update">
+		<![CDATA[
+        	UPDATE
+        		leasing_programms
+          	SET
+          		name = #{name},
+				max_year_term = #{maxYearTerm},
+				commision = #{commision}
+          	WHERE
+			 	id = #{id}
+        ]]>
+	</update>
+
+	<delete id="delete">
+        <![CDATA[
+        	DELETE
+          	FROM 
+          		leasing_programms
+          	WHERE
+          		id = #{id}
+        ]]>
+	</delete>
+
+	<resultMap type="by.tataranovich.leasingcompany.model.LeasingProgramm"
+		id="LeasingProgramm" autoMapping="false">
+		<id column="leasing_programm_id" property="id" />
+		<result column="leasing_programm_name" property="name" />
+		<result column="leasing_programm_max_year_term" property="maxYearTerm" />
+		<result column="leasing_programm_commision" property="commision" />
+	</resultMap>
+
+</mapper>

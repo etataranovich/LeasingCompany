@@ -12,9 +12,18 @@ public class Address extends IdEntity {
     private String houseNumber;
     
     @JsonIgnore
-    private Long leasingCompanyId;
+    private int leasingCompanyId;
+    
+    
 
-    public Address(Long id) {
+    public Address(String street, String houseNumber, int leasingCompanyId) {
+		super();
+		this.street = street;
+		this.houseNumber = houseNumber;
+		this.leasingCompanyId = leasingCompanyId;
+	}
+
+	public Address(Long id) {
 	super(id);
     }
 
@@ -39,11 +48,11 @@ public class Address extends IdEntity {
     }
 
         
-    public Long getLeasingCompanyId() {
+    public int getLeasingCompanyId() {
         return leasingCompanyId;
     }
 
-    public void setLeasingCompanyId(Long leasingCompanyId) {
+    public void setLeasingCompanyId(int leasingCompanyId) {
         this.leasingCompanyId = leasingCompanyId;
     }
 

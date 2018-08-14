@@ -19,7 +19,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import by.tataranovich.leasingcompany.model.LeasingCompany;
-import by.tataranovich.leasingcompany.service.impl.LeasingCompanyServiceImpl;
+import by.tataranovich.leasingcompany.service.jdbcimpl.LeasingCompanyServiceImpl;
 
 
 public class JSONRunner {

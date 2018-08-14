@@ -7,10 +7,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import by.tataranovich.leasingcompany.dao.LeasingCompanyDAO;
-import by.tataranovich.leasingcompany.dao.impl.JDBCAddressDAO;
-import by.tataranovich.leasingcompany.dao.impl.JDBCCarDAO;
-import by.tataranovich.leasingcompany.dao.impl.JDBCClientDAO;
-import by.tataranovich.leasingcompany.dao.impl.JDBCLeasingCompanyDAO;
+import by.tataranovich.leasingcompany.dao.jdbcimpl.JDBCAddressDAO;
+import by.tataranovich.leasingcompany.dao.jdbcimpl.JDBCCarDAO;
+import by.tataranovich.leasingcompany.dao.jdbcimpl.JDBCClientDAO;
+import by.tataranovich.leasingcompany.dao.jdbcimpl.JDBCLeasingCompanyDAO;
 import by.tataranovich.leasingcompany.model.Address;
 import by.tataranovich.leasingcompany.model.Car;
 import by.tataranovich.leasingcompany.model.CarModel;
@@ -19,10 +19,10 @@ import by.tataranovich.leasingcompany.model.Contract;
 import by.tataranovich.leasingcompany.model.Credit;
 import by.tataranovich.leasingcompany.model.LeasingCompany;
 import by.tataranovich.leasingcompany.model.LeasingProgramm;
-import by.tataranovich.leasingcompany.service.impl.CarServiceImpl;
-import by.tataranovich.leasingcompany.service.impl.ContractServiceImpl;
-import by.tataranovich.leasingcompany.service.impl.LeasingCompanyServiceImpl;
-import by.tataranovich.leasingcompany.service.impl.LeasingCompanyServiceImpl1;
+import by.tataranovich.leasingcompany.service.jdbcimpl.CarServiceImpl;
+import by.tataranovich.leasingcompany.service.jdbcimpl.ContractServiceImpl;
+import by.tataranovich.leasingcompany.service.jdbcimpl.LeasingCompanyServiceImpl;
+import by.tataranovich.leasingcompany.service.jdbcimpl.LeasingCompanyServiceImpl1;
 
 
 public class RunnerDao {

@@ -1,20 +1,20 @@
-package by.tataranovich.leasingcompany.service.impl;
+package by.tataranovich.leasingcompany.service.jdbcimpl;
 
 import java.util.List;
 
-import by.tataranovich.leasingcompany.dao.impl.JDBCAddressDAO;
-import by.tataranovich.leasingcompany.dao.impl.JDBCLeasingCompanyDAO;
+import by.tataranovich.leasingcompany.dao.jdbcimpl.JDBCAddressDAO;
+import by.tataranovich.leasingcompany.dao.jdbcimpl.JDBCLeasingCompanyDAO;
 import by.tataranovich.leasingcompany.model.LeasingCompany;
 import by.tataranovich.leasingcompany.service.ILeasingCompanyService;
 
-public class LeasingCompanyServiceImpl1 extends AbstractService<LeasingCompany, JDBCLeasingCompanyDAO>
+public class LeasingCompanyServiceImplREJECTED extends AbstractService<LeasingCompany, JDBCLeasingCompanyDAO>
 	implements ILeasingCompanyService {
 
     private JDBCAddressDAO addressDAO;
     private ContractServiceImpl contractServiceImpl;
     private ClientServiceImpl clientServiceImpl;
 
-    public LeasingCompanyServiceImpl1(JDBCLeasingCompanyDAO dao) {
+    public LeasingCompanyServiceImplREJECTED(JDBCLeasingCompanyDAO dao) {
 	super(new JDBCLeasingCompanyDAO());
 	this.addressDAO = new JDBCAddressDAO();
 	this.contractServiceImpl = new ContractServiceImpl();
@@ -50,9 +50,7 @@ public class LeasingCompanyServiceImpl1 extends AbstractService<LeasingCompany, 
 
     @Override
     public void add(LeasingCompany entity) {
-	// TODO Auto-generated method stub
-	
+
     }
-    
 
 }

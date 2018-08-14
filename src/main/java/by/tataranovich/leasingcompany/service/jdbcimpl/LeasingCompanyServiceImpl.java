@@ -1,15 +1,15 @@
-package by.tataranovich.leasingcompany.service.impl;
+package by.tataranovich.leasingcompany.service.jdbcimpl;
 
 import java.util.List;
 
-import by.tataranovich.leasingcompany.dao.impl.JDBCAddressDAO;
-import by.tataranovich.leasingcompany.dao.impl.JDBCCarDAO;
-import by.tataranovich.leasingcompany.dao.impl.JDBCCarProviderDAO;
-import by.tataranovich.leasingcompany.dao.impl.JDBCClientDAO;
-import by.tataranovich.leasingcompany.dao.impl.JDBCContractDAO;
-import by.tataranovich.leasingcompany.dao.impl.JDBCCreditDAO;
-import by.tataranovich.leasingcompany.dao.impl.JDBCLeasingCompanyDAO;
-import by.tataranovich.leasingcompany.dao.impl.JDBCLeasingProgrammDAO;
+import by.tataranovich.leasingcompany.dao.jdbcimpl.JDBCAddressDAO;
+import by.tataranovich.leasingcompany.dao.jdbcimpl.JDBCCarDAO;
+import by.tataranovich.leasingcompany.dao.jdbcimpl.JDBCCarProviderDAO;
+import by.tataranovich.leasingcompany.dao.jdbcimpl.JDBCClientDAO;
+import by.tataranovich.leasingcompany.dao.jdbcimpl.JDBCContractDAO;
+import by.tataranovich.leasingcompany.dao.jdbcimpl.JDBCCreditDAO;
+import by.tataranovich.leasingcompany.dao.jdbcimpl.JDBCLeasingCompanyDAO;
+import by.tataranovich.leasingcompany.dao.jdbcimpl.JDBCLeasingProgrammDAO;
 import by.tataranovich.leasingcompany.model.Car;
 import by.tataranovich.leasingcompany.model.Contract;
 import by.tataranovich.leasingcompany.model.LeasingCompany;

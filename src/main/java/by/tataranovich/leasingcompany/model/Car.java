@@ -2,15 +2,15 @@ package by.tataranovich.leasingcompany.model;
 
 
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
+//import javax.xml.bind.annotation.XmlAccessType;
+//import javax.xml.bind.annotation.XmlAccessorType;
+//import javax.xml.bind.annotation.XmlRootElement;
 
 import by.tataranovich.leasingcompany.model.IdEntity;
 
 
-@XmlRootElement(name="carProvider")
-@XmlAccessorType(XmlAccessType.FIELD)
+//@XmlRootElement(name="carProvider")
+//@XmlAccessorType(XmlAccessType.FIELD)
 public class Car extends IdEntity {
 
     public Car(Long id) {

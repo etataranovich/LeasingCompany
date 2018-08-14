@@ -18,10 +18,10 @@
 			SELECT
 			    cp.id AS car_provider_id,
 				cp.name AS car_provider_name,
-				cp.phone AS car_provider_phone,
+				cp.phone AS car_provider_phone
 				FROM car_providers cp   
 		]]>
-		
+
 	</sql>
 
 	<select id="getById" parameterType="java.lang.Long" resultMap="CarProvider">
@@ -30,7 +30,18 @@
 			WHERE cp.id = #{id};
 		]]>
 	</select>
-	
+
+	<select id="getCarProviderByCarId" parameterType="java.lang.Long" resultMap="CarProvider">
+		<![CDATA[
+		SELECT
+			    cp.id AS car_provider_id,
+				cp.name AS car_provider_name,
+				cp.phone AS car_provider_phone
+				FROM car_providers cp LEFT JOIN cars c ON cp.id=c.id 
+			WHERE c.id = #{id};
+		]]>
+	</select>
+
 	<select id="getAll" resultMap="CarProvider">
 		<include refid="getCarProvider" />
 	</select>
@@ -46,21 +57,22 @@
 			 	ID = #{id}
         ]]>
 	</update>
-	
-	 <delete id="delete">
+
+	<delete id="delete">
         <![CDATA[
         	DELETE
           	FROM 
-          		addresses
+          		car_providers
           	WHERE
           		id = #{id}
         ]]>
-    </delete>
-	
-	<resultMap type="package by.tataranovich.leasingcompany.model.ICarProvider" id="CarProvider" autoMapping="false">
+	</delete>
+
+	<resultMap type="by.tataranovich.leasingcompany.model.CarProvider"
+		id="CarProvider" autoMapping="false">
 		<id column="car_provider_id" property="id" />
 		<result column="car_provider_name" property="name" />
 		<result column="car_provider_phone" property="phone" />
-		</resultMap>
+	</resultMap>
 
 </mapper>

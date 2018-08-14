@@ -1,11 +1,8 @@
 package by.tataranovich.leasingcompany.model;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement(name="leasingProgramm")
-@XmlAccessorType(XmlAccessType.FIELD)
+//@XmlRootElement(name="leasingProgramm")
+//@XmlAccessorType(XmlAccessType.FIELD)
 public class LeasingProgramm extends IdEntity {
 
     private String name;

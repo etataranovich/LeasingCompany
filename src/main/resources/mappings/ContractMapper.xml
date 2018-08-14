@@ -1,27 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="by.tataranovich.leasingcompany.dao.ICarDAO">
+<mapper namespace="by.tataranovich.leasingcompany.dao.IContractDAO">
 
 	<insert id="add" useGeneratedKeys="true" keyProperty="id">
 		<![CDATA[
-			INSERT INTO cars (price, car_model_id, car_provider_id)
+			INSERT INTO contarcts (date, client_id, car_id, leasing_programm_id, credit_id)
 			VALUES (
-				#{price},
-				#{carModel, typeHandler=by.tataranovich.leasingcompany.mybatis.CarModelTypeHandler},
-				#{carProvider.id}
+				#{date},
+				#{client.id},
+				#{car.id},
+				#{leasingProgramm.id},
+				#{credit.id}
 			)
 		]]>
 	</insert>
 
-	<sql id="getCar">
+	<sql id="getContract">
 		<![CDATA[
 			SELECT
-			    c.id AS car_id,
-				c.price AS car_price,
-				c.car_model_id AS car_model_id,
-				c.car_provider_id AS car_provider_id
-				FROM cars c   
+			    ct.id AS contcact_date,
+			    ct.client_id AS contract_client_id,
+				ct.price AS car_price,
+				ct.car_model_id AS car_model_id,
+				ct.car_provider_id AS car_provider_id
+				FROM contarcts ct   
 		]]>
 
 	</sql>
@@ -40,12 +43,12 @@
 	<update id="update">
 		<![CDATA[
         	UPDATE
-        		car_providers
+        		contracts
           	SET
-          		price = #{name},
+          		date = #{date},
 				car_model_id = #{carModel, typeHandler=by.tataranovich.leasingcompany.mybatis.CarModelTypeHandler}
           	WHERE
-			 	ID = #{id}
+			 	id = #{id}
         ]]>
 	</update>
 
@@ -53,13 +56,13 @@
         <![CDATA[
         	DELETE
           	FROM 
-          		cars
+          		contracts
           	WHERE
           		id = #{id}
         ]]>
 	</delete>
 
-	<resultMap type="by.tataranovich.leasingcompany.model.Car"
+	<resultMap type="by.tataranovich.leasingcompany.model.Contarct"
 		id="Car" autoMapping="false">
 		<id column="car_id" property="id" />
 		<result column="car_price" property="price" />

@@ -1,4 +1,4 @@
-package by.tataranovich.leasingcompany.dao.impl;
+package by.tataranovich.leasingcompany.dao.jdbcimpl;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,7 +17,7 @@ import by.tataranovich.leasingcompany.model.Address;
 public class JDBCAddressDAO extends AbstractDAO<Address> implements IAddressDAO {
     private static final Logger lOGGER = LogManager.getLogger(JDBCAddressDAO.class);
     private final static String GET_ADDRESSES_BY_LEASING_COMPANY_ID = "SELECT addresses.id, addresses.street, addresses.house_number from addresses LEFT JOIN leasing_company ON leasing_company.id=addresses.leasing_company_id WHERE leasing_company_id=?";
-    private final static String GET_ADDRESS_BY_ID = "SELECT addresses.id, addresses.street, addresses.house from addresses WHERE addresses.id=?";
+    private final static String GET_ADDRESS_BY_ID = "SELECT addresses.id, addresses.street, addresses.house_number from addresses WHERE addresses.id=?";
     private final static String GET_ADDRESS_ALL = "SELECT addresses.id, addresses.street, addresses.house from addresses";
     private final static String INSERT_ADDRESS = "INSERT into addresses (addresses.street, addresses.house, addresses.leasing_company_id ) VALUES (?,?,?)";
     private final static String UPDATE_ADDRESS_BY_ID = "UPDATE addresses SET addresses.street =? WHERE addresses.id=?";
