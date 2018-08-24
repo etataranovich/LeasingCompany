@@ -12,6 +12,7 @@ public class LeasingCompany extends IdEntity {
 
     // @XmlElementWrapper(name = "addresses")
     // @XmlElement(name = "address")
+    
     private List<Address> addresses;
     // @XmlElementWrapper(name = "contracts")
     // @XmlElement(name = "contract")

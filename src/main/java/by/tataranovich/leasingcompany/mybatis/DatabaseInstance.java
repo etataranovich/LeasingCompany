@@ -13,6 +13,7 @@ public class DatabaseInstance {
     private static DatabaseInstance INSTANCE = null;
     private SqlSessionFactory factory;
 
+
     private DatabaseInstance() {
 	String resource = "mybatis.xml";
 	try (InputStream inputStream = Resources.getResourceAsStream(resource)) {

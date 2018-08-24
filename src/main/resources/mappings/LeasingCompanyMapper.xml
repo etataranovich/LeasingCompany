@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="by.tataranovich.leasingcompany.service.ILeasingCompanyService">
+
+	<insert id="add" useGeneratedKeys="true" keyProperty="id">
+		<![CDATA[
+			INSERT INTO leasing_company (name, phone)
+			VALUES (
+				#{name},
+				#{phone}
+		    )
+		]]>
+	</insert>
+
+	<sql id="getLeasingCompany">
+		<![CDATA[
+			SELECT
+			    lc.id AS leasing_company_id,
+			    lc.name AS leasing_company_name,
+			    lc.phone AS leasing_company_phone
+				FROM leasing_company lc   
+		]]>
+
+	</sql>
+
+	<select id="getById" parameterType="java.lang.Long" resultMap="LeasingCompany">
+		<include refid="getLeasingCompany" />
+		<![CDATA[
+			WHERE lc.id = #{id};
+		]]>
+	</select>
+
+
+	<select id="getAll" resultMap="LeasingCompany">
+		<include refid="getLeasingCompany" />
+	</select>
+
+	<update id="update">
+		<![CDATA[
+        	UPDATE
+        		leasing_company
+          	SET
+          		name = #{name},
+          		phone = #{phone}
+				
+			WHERE
+			 	id = #{id}
+        ]]>
+	</update>
+
+	<delete id="delete">
+        <![CDATA[
+        	DELETE
+          	FROM 
+          		leasing_company
+          	WHERE
+          		id = #{id}
+        ]]>
+	</delete>
+
+	<resultMap type="by.tataranovich.leasingcompany.model.LeasingCompany"
+		id="LeasingCompany" autoMapping="false">
+		<id column="leasing_company_id" property="id" />
+		<result column="leasing_company_name" property="name" />
+		<result column="leasing_company_phone" property="phone" />
+		<collection  column="id" property="addresses"
+			ofType="by.tataranovich.leasingcompany.model.Address"
+			select="by.tataranovich.leasingcompany.service.IAddressService.getAddressesByLeasingCompanyId"
+			fetchType="eager" />
+		<collection property="contracts" column="id" javaType="List"
+			ofType="Contract"
+			select="by.tataranovich.leasingcompany.service.IAddressService.getContractsByLeasingCompanyId"
+			fetchType="eager" />
+		<collection property="clients" column="id" javaType="List"
+	ofType="Client"
+	select="by.tataranovich.leasingcompany.service.IAddressService.getClientsByLeasingCompanyId"
+	fetchType="eager" />
+	</resultMap>
+
+</mapper>

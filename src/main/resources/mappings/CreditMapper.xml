@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="by.tataranovich.leasingcompany.dao.ICreditDAO">
+<mapper namespace="by.tataranovich.leasingcompany.service.ICreditService">
 
 	<insert id="add" useGeneratedKeys="true" keyProperty="id">
 		<![CDATA[
 			INSERT INTO credits (name,phone)
 			VALUES (
-				#{name},
-				#{phone}
+				#{loanAmount},
+				#{interestRate},
+				#{term}
 			)
 		]]>
 	</insert>
@@ -53,10 +54,12 @@
         	UPDATE
         		credits
           	SET
-          		name = #{name},
-				phone = #{phone}
+          		loan_amount = #{loanAmount},
+				interest_rate = #{interestRate},
+				term = #{term},
+				
           	WHERE
-			 	ID = #{id}
+			 	id = #{id}
         ]]>
 	</update>
 

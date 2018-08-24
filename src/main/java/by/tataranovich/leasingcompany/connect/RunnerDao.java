@@ -22,7 +22,7 @@ import by.tataranovich.leasingcompany.model.LeasingProgramm;
 import by.tataranovich.leasingcompany.service.jdbcimpl.CarServiceImpl;
 import by.tataranovich.leasingcompany.service.jdbcimpl.ContractServiceImpl;
 import by.tataranovich.leasingcompany.service.jdbcimpl.LeasingCompanyServiceImpl;
-import by.tataranovich.leasingcompany.service.jdbcimpl.LeasingCompanyServiceImpl1;
+
 
 
 public class RunnerDao {

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="by.tataranovich.leasingcompany.dao.ICarDAO">
+<mapper namespace="by.tataranovich.leasingcompany.service.ICarService">
 
 	<insert id="add" useGeneratedKeys="true" keyProperty="id">
 		<![CDATA[
@@ -32,6 +32,16 @@
 			WHERE c.id = #{id};
 		]]>
 	</select>
+	
+	<select id="getCarByContractId" parameterType="java.lang.Long" resultMap="Car">
+		<include refid="getCar" />
+		<![CDATA[
+		   LEFT JOIN contracts co ON co.сar_id=c.id 
+			WHERE co.id = #{id};
+		]]>
+	</select>
+	
+
 
 	<select id="getAll" resultMap="Car">
 		<include refid="getCar" />
@@ -40,7 +50,7 @@
 	<update id="update">
 		<![CDATA[
         	UPDATE
-        		car_providers
+        		cars
           	SET
           		price = #{name},
 				car_model_id = #{carModel, typeHandler=by.tataranovich.leasingcompany.mybatis.CarModelTypeHandler}
@@ -66,7 +76,7 @@
 		<association property="carModel" column="car_model_id"
 			javaType="by.tataranovich.leasingcompany.model.CarModel" />
 		<association property="carProvider" column="car_car_provider_id"
-			javaType="by.tataranovich.leasingcompany.model.CarProvider" select="by.tataranovich.leasingcompany.dao.ICarProviderDAO.getById"
+			javaType="by.tataranovich.leasingcompany.model.CarProvider" select="by.tataranovich.leasingcompany.service.ICarProviderService.getCarProviderByCarId"
 			fetchType="eager" />
 	</resultMap>
 

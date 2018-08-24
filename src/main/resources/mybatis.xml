@@ -27,7 +27,11 @@
 		<mapper resource="mappings/AddressMapper.xml" />
 		<mapper resource="mappings/CarMapper.xml" />
 		<mapper resource="mappings/CarProviderMapper.xml" />
+		<mapper resource="mappings/ClientMapper.xml" />
 		<mapper resource="mappings/ContractMapper.xml" />
+		<mapper resource="mappings/CreditMapper.xml" />
+		<mapper resource="mappings/LeasingProgrammMapper.xml" />
+		<mapper resource="mappings/LeasingCompanyMapper.xml" />
 	</mappers>
 
 </configuration>

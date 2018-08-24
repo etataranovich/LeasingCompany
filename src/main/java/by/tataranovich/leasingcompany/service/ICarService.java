@@ -6,7 +6,7 @@ import by.tataranovich.leasingcompany.model.Car;
 
 public interface ICarService extends DefaultService<Car> {
     
-    public List<Car> getCarByCarProviderId(Long id);
-    public Car getCarByContractId(Long idContract);
+    List<Car> getCarByCarProviderId(Long id);
+    Car getCarByContractId(Long idContract);
 
 }

@@ -16,7 +16,7 @@ public class ClientServiceImpl extends AbstractService<Client, JDBCClientDAO> im
     public Client getById(Long id) {
 	return dao.getById(id);
     }
-///!!!!!!!!!!!!!!!!
+
     public void addClientToLeasingCompany(Client client, Long idLeasingCompany) {
 	dao.add(client, idLeasingCompany);
     }

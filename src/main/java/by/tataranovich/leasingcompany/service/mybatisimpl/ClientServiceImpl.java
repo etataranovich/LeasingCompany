@@ -2,55 +2,54 @@ package by.tataranovich.leasingcompany.service.mybatisimpl;
 
 import java.util.List;
 
-import by.tataranovich.leasingcompany.dao.IClientDAO;
 import by.tataranovich.leasingcompany.model.Client;
 import by.tataranovich.leasingcompany.mybatis.DatabaseInstance;
 import by.tataranovich.leasingcompany.service.IClientService;
 
 public class ClientServiceImpl implements IClientService {
 
-    private IClientDAO clientDAO;
+    private IClientService clientService;
 
     public ClientServiceImpl() {
-	this.clientDAO = DatabaseInstance.getInstance().getFactory().openSession().getMapper(IClientDAO.class);
+	this.clientService = DatabaseInstance.getInstance().getFactory().openSession(true).getMapper(IClientService.class);
 
     }
 
     @Override
     public void add(Client entity) {
-	clientDAO.add(entity);
+	clientService.add(entity);
     }
 
     @Override
     public Client getById(Long id) {
-	return clientDAO.getById(id);
+	return clientService.getById(id);
     }
 
     @Override
     public void update(Client entity) {
-	clientDAO.update(entity);
+	clientService.update(entity);
 
     }
 
     @Override
     public void delete(Long id) {
-	clientDAO.delete(id);
+	clientService.delete(id);
 
     }
 
     @Override
     public List<Client> getAll() {
-	return clientDAO.getAll();
+	return clientService.getAll();
     }
 
     @Override
     public List<Client> getClientsByLeasingCompanyId(Long idLeasingCompany) {
-	return clientDAO.getClientsbyLeasingCompanyId(idLeasingCompany);
+	return clientService.getClientsByLeasingCompanyId(idLeasingCompany);
     }
 
     @Override
     public Client getClientByContractId(Long idContract) {
-	return clientDAO.getClientByContractId(idContract);
+	return clientService.getClientByContractId(idContract);
     }
 
 }

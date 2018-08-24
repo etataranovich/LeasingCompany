@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="by.tataranovich.leasingcompany.dao.IClientDAO">
+<mapper namespace="by.tataranovich.leasingcompany.service.IClientService">
 
 	<insert id="add" useGeneratedKeys="true" keyProperty="id">
 		<![CDATA[
@@ -77,7 +77,7 @@
 		id="Client" autoMapping="false">
 		<id column="client_id" property="id" />
 		<result column="client_first_name" property="firstName" />
-		<result column="client_last_name" property="lastname" />
+		<result column="client_last_name" property="lastName" />
 		<result column="client_phone" property="phone" />
 	</resultMap>
 
